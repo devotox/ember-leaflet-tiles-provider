@@ -1,6 +1,12 @@
 /* eslint-env node */
-'use strict';
 
 module.exports = {
-  name: 'ember-leaflet-tiles-provider'
+  name: 'ember-leaflet-tiles-provider',
+  options: {
+    nodeAssets: {
+      'leaflet-providers': {
+        import: ['leaflet-providers.js'],
+      }
+    }
+  }
 };
