@@ -26,5 +26,8 @@ apiKey: '<enter-api-key>'
 {{/leaflet-map}}
 ```
 
+## Options
+* Posible Map Options [Here](http://leaflet-extras.github.io/leaflet-providers/preview/index.html)
+
 #### License
 MIT license.
