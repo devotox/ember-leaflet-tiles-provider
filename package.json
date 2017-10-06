@@ -63,6 +63,7 @@
   },
   "ember-addon": {
     "configPath": "tests/dummy/config",
+    "demoURL": "https://devotox.github.io/ember-leaflet-tiles-provider",
     "after": [
       "ember-leaflet"
     ]
