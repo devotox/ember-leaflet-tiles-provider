@@ -11,6 +11,8 @@
 This addon extends [ember-leaflet](http://www.ember-leaflet.com/) 2.0. It extends the `{{tile-layer}}` component to support using a provider instead of a URL.
 It uses [this leaflet extension](https://github.com/leaflet-extras/leaflet-providers) to accomplish that.
 
+[DEMO](http://devotox.github.io/ember-leaflet-tiles-provider)
+
 ## Installation
 * `ember install ember-leaflet-tiles-provider`
 
