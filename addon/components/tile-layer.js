@@ -2,11 +2,13 @@ import TileLayer from 'ember-leaflet/components/tile-layer';
 
 export default TileLayer.extend({
   
-  leafletProviderOptions: [ // needed for access to paid maps
+  // needed for access to paid maps
+  leafletProviderOptions: [  // eslint-disable-line
     'apiKey',  // Thunderforest
     'accessToken', // Mapbox
     'app_id', 'app_code' // HERE (Formerly Nokia maps)
   ],
+
   createProviderLayer(provider) {
       this.set('leafletRequiredOptions', ['provider']);
     

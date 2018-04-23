@@ -2,6 +2,7 @@
 
 module.exports = {
   name: 'ember-leaflet-tiles-provider',
+  
   options: {
     nodeAssets: {
       'leaflet-providers': {
