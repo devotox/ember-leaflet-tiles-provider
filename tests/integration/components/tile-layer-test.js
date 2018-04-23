@@ -10,17 +10,13 @@ module('Integration | Component | tile-layer', function(hooks) {
     // Set any properties with this.set('myProperty', 'value');
     // Handle any actions with this.set('myAction', function(val) { ... });
 
-    await render(hbs`{{tile-layer}}`);
-
-    assert.equal(this.element.textContent.trim(), '');
-
     // Template block usage:
     await render(hbs`
-      {{#tile-layer}}
-        template block text
-      {{/tile-layer}}
+      {{#leaflet-map lat=51.512983 lng=-0.138289 zoom=8}}
+        {{tile-layer provider='Stamen.Watercolor'}}
+      {{/leaflet-map}}
     `);
 
-    assert.equal(this.element.textContent.trim(), 'template block text');
+    assert.notEqual(this.element.textContent.trim(), '');
   });
 });
