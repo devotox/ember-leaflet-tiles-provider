@@ -1,6 +1,6 @@
 {
   "name": "ember-leaflet-tiles-provider",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "Allow usage of tiles provider rather than url for ember leaflet",
   "keywords": [
     "ember-addon",
