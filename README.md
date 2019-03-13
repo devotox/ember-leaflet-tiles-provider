@@ -13,7 +13,7 @@ ember-leaflet-tiles-provider
 This addon extends [ember-leaflet](http://www.ember-leaflet.com/) 2.0. It extends the `{{tile-layer}}` component to support using a provider instead of a URL.
 It uses [this leaflet extension](https://github.com/leaflet-extras/leaflet-providers) to accomplish that.
 
-[DEMO](http://devotox.github.io/ember-leaflet-tiles-provider)
+[DEMO](https://devotox.github.io/ember-leaflet-tiles-provider)
 
 Installation
 ------------------------------------------------------------------------------
@@ -21,7 +21,6 @@ Installation
 ```
 ember install ember-leaflet-tiles-provider
 ```
-
 
 Usage
 ------------------------------------------------------------------------------
@@ -43,29 +42,7 @@ apiKey: '<enter-api-key>'
 Contributing
 ------------------------------------------------------------------------------
 
-### Installation
-
-* `git clone <repository-url>`
-* `cd ember-leaflet-tiles-provider`
-* `yarn install`
-
-### Linting
-
-* `yarn lint:js`
-* `yarn lint:js --fix`
-
-### Running tests
-
-* `ember test` – Runs the test suite on the current Ember version
-* `ember test --server` – Runs the test suite in "watch mode"
-* `ember try:each` – Runs the test suite against multiple Ember versions
-
-### Running the dummy application
-
-* `ember serve`
-* Visit the dummy application at [http://localhost:4200](http://localhost:4200).
-
-For more information on using ember-cli, visit [https://ember-cli.com/](https://ember-cli.com/).
+See the [Contributing](CONTRIBUTING.md) guide for details.
 
 License
 ------------------------------------------------------------------------------

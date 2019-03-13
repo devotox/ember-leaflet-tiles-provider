@@ -1,42 +1,77 @@
+---
 language: node_js
 node_js:
-- '6'
+  # we recommend testing addons with the same minimum supported node version as Ember CLI
+  # so that your addon works for all apps
+  - "6"
+
 sudo: false
 dist: trusty
+
 addons:
   chrome: stable
+
 cache:
   yarn: true
+
 env:
-  matrix:
-  - EMBER_TRY_SCENARIO=ember-lts-2.12
-  - EMBER_TRY_SCENARIO=ember-lts-2.16
-  - EMBER_TRY_SCENARIO=ember-lts-2.18
-  - EMBER_TRY_SCENARIO=ember-release
-  - EMBER_TRY_SCENARIO=ember-beta
-  - EMBER_TRY_SCENARIO=ember-canary
-  - EMBER_TRY_SCENARIO=ember-default
   global:
     # See https://git.io/vdao3 for details.
     JOBS: 1
     secure: fOTO/HpUT0xsfml9iXuEL9qBu0NVErcig6CmrS1DFv7f4x9/mYQMNzLUv5b6VBPqGHeFNHiGaUUza3Ufc5KpL7DOu/1y6TFQlSoM6MRRdIXb+50MObvkJ4wXwYJH7Zrb4g8RTaBOY9uU5XQkm/E6GWWF3NiYFoVzCYPNSgAALko1caoEX2hoJNXJSd0T4G+gxtxc2g08RGunBPLqIyy2avMRN4yq0WDN2NbBrztM01FA5RoOLPyX0hhzyIZ+45z34wKvZtu7rj9h1KbFOZOVFJWpHDa0bXxhF63ldxPINe2QMOSsOD22Czk1+IKyC+88gtkvUq7pGUaJK6YdVDRcW9G/DMHVy/IE2aFabrPDVgzrmeCoVKzATzt8nMfIMTTu9Unoa5fdohpJ0NPhYnPfVAGfJ+2MPITgP+x2X6M5+KgHCBdaIgwBVnZE9DTb1L9c/Eh50zeHHbfv9L+NVlbQFzMWNj+kKWMj0qwh6JPpSFiKaOvTK6XP+NSUc7euAZgqK6lwqS07pvcql4qvzbeRWyn/GZuRHOGvfkUNuvLee8dMKfpF3s1VQ6blHHqKB8qH2ifxawiztWgUkYxK0GFTk//ZopLzP90bLl0JiGlg517tp5V9eBOK5ZlPwsSOhD+wta9gCssPjK4i2H2IwLox7AqXegigBMdqIbXz9LaFVAY=
-matrix:
-  fast_finish: true
+
+branches:
+  only:
+    - master
+    # npm version tags
+    - /^v\d+\.\d+\.\d+/
+    # greenkeeper branches
+    - /^greenkeeper\/.*$/
+
+jobs:
+  fail_fast: true
   allow_failures:
-  - env: EMBER_TRY_SCENARIO=ember-canary
+    - env: EMBER_TRY_SCENARIO=ember-canary
+
+  include:
+    # runs linting and tests with current locked deps
+
+    - stage: "Tests"
+      name: "Tests"
+      install:
+        - yarn install --non-interactive
+      script:
+        - yarn lint:hbs
+        - yarn lint:js
+        - COVERAGE=true yarn test
+        - codecov
+
+    # - name: "Floating Dependencies"
+    #   script:
+    #     - yarn test
+
+    # we recommend new addons test the current and previous LTS
+    # as well as latest stable release (bonus points to beta/canary)
+    - stage: "Additional Tests"
+      env: EMBER_TRY_SCENARIO=ember-lts-2.18
+    - env: EMBER_TRY_SCENARIO=ember-lts-3.4
+    - env: EMBER_TRY_SCENARIO=ember-release
+    - env: EMBER_TRY_SCENARIO=ember-beta
+    - env: EMBER_TRY_SCENARIO=ember-canary
+    - env: EMBER_TRY_SCENARIO=ember-default-with-jquery
+
 before_install:
-- curl -o- -L https://yarnpkg.com/install.sh | bash
-- export PATH=$HOME/.yarn/bin:$PATH
-- yarn global add greenkeeper-lockfile@1
-- yarn global add codecov
+  - curl -o- -L https://yarnpkg.com/install.sh | bash
+  - export PATH=$HOME/.yarn/bin:$PATH
+  - yarn global add greenkeeper-lockfile@1
+  - yarn global add codecov
+
 install:
-- yarn install --no-lockfile --non-interactive
-before_script: greenkeeper-lockfile-update
-after_script: greenkeeper-lockfile-upload
+  - yarn install --no-lockfile --non-interactive
+
 script:
-- yarn lint:js
-- COVERAGE=true node_modules/.bin/ember try:one $EMBER_TRY_SCENARIO --skip-cleanup
-- codecov
+  - node_modules/.bin/ember try:one $EMBER_TRY_SCENARIO
+
 notifications:
   webhooks:
     urls:
@@ -49,3 +84,13 @@ notifications:
   slack:
     rooms:
       secure: ro4pknbvHJV05FXHSD0XDgoq/Z5nHGkdifQYZkx1UOD4y4zw3yLorHWUVyQx8jhhgNxx+Gzl2t7qb7IUSRzQt3UWeqYHmMiH8pcyUMbbYFO8UqmwqVQBUQnPhhNW7D+MZYMp9gJGLoHu5uSrzLxkNuDiMZujoecEPPe8jhble0iMqJnn+X/tkIrlCNq7bs6cLPikgFrsU8fBa5rFk/4YfnANkaa1eRYBK091fjM5SPIUFrGXFvQ5pJAJPmz1jlWEQxiefSzYtEBFhtJNXqi7vjFrZxF4CXN+TOAfITfMxo3MFxoeFwcmMYe6T7lRQDd0yMeUHonCV6mnu/rtEBinticmOL9XW7ol2CQEzt9mPWwSeGIU0Nj7MzU7pqQyoFi1+3DQFaiOkr+q53uheDYRMO0H+PdjJeSpnznSOhuetscEAE9WHAXLK9NEl7mQ+sDf707Pd9ORnrmdzShnm9gwrlfbtDHi9uRRUruyTPiJMLfNdHzA4ShuAV17B2W948oAH+QA5rX++9Qd2Cw8UquJjXBXkfFY0rEzt2ZthSS7i+locFwQI63uV/f2rBKS8xu1xr71BXQUHumgg51+JKvkxyxiGpPpXaYn9tChGk5NdRCpv/MKO56yeUMfUboLyaGNuW3jX0NN4k2Bu/4JVca8Cx3cD1AORc9ZPwDGNPJ2Mj8=
+
+deploy:
+  provider: npm
+  skip_cleanup: true
+  email: devo.tox.89@gmail.com
+  api_key:
+    secure: bnDWNFSYyTFaP47POvV8wVkmzY2g4iS/Ml08hHX7XtBD2xIXy9HeisQ3x0PGVYQD7mKDSix2dHWV0YPF9OhiwaCqrJamlHQvgO7bJMfdj0RjN8By9H/61VLE8Wya2Sg2QGj8xJOdfa4OW3FvpOcV92KeZrb3JTYUihkgXexpPcU36TCPsQ3VtY9p5NfgI/EM2Omdv6e8YljhSMEwJxvLnChV6vvPUaHp5zcMxCM8Ti5MjV1/WtqFjYVL+3rcrdahwuzXVcp57RR8T/KJ/qQ16N65igS0oG/f98ngpDV6+9YieyzrdlWkgupIZ5XIoImrI9/o5Fyx7K/Rm3CXAIevOy7PHsgVDMX6/bloWQMrPEMj50MZAwczsqCCPNlgjij0quUVs/27/GtcS9HSYFbZtq/1JBaQxhGh4IXCPo+4VfOXz3LvddSyND3U485jyvSjZYqhN+I/jhQItEVB85uv2tr7+PjHgs4DxCWPmgeuLkG6gHKW5Duhhk/tJoCLc85T6OMhKYHn780Kw/Irf5BKljfF08a7aQFY1YS55/+i6fs3IlLQyolqBf/MIjAHgGf4HB9GNM6RnZRWG6n3pV1Z0vTKEbgBFVUU3buyBnFm/zVrGZa4gwhQUnsN9N1bjQ96KuIqvYSfKwCdzXjQO9m2TDDlIO12erhhFkuxM4AqDV0=
+  on:
+    tags: true
+    repo: devotox/ember-cli-leaflet-tiles-provider
