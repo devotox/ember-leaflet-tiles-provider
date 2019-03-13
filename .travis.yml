@@ -93,4 +93,4 @@ deploy:
     secure: bnDWNFSYyTFaP47POvV8wVkmzY2g4iS/Ml08hHX7XtBD2xIXy9HeisQ3x0PGVYQD7mKDSix2dHWV0YPF9OhiwaCqrJamlHQvgO7bJMfdj0RjN8By9H/61VLE8Wya2Sg2QGj8xJOdfa4OW3FvpOcV92KeZrb3JTYUihkgXexpPcU36TCPsQ3VtY9p5NfgI/EM2Omdv6e8YljhSMEwJxvLnChV6vvPUaHp5zcMxCM8Ti5MjV1/WtqFjYVL+3rcrdahwuzXVcp57RR8T/KJ/qQ16N65igS0oG/f98ngpDV6+9YieyzrdlWkgupIZ5XIoImrI9/o5Fyx7K/Rm3CXAIevOy7PHsgVDMX6/bloWQMrPEMj50MZAwczsqCCPNlgjij0quUVs/27/GtcS9HSYFbZtq/1JBaQxhGh4IXCPo+4VfOXz3LvddSyND3U485jyvSjZYqhN+I/jhQItEVB85uv2tr7+PjHgs4DxCWPmgeuLkG6gHKW5Duhhk/tJoCLc85T6OMhKYHn780Kw/Irf5BKljfF08a7aQFY1YS55/+i6fs3IlLQyolqBf/MIjAHgGf4HB9GNM6RnZRWG6n3pV1Z0vTKEbgBFVUU3buyBnFm/zVrGZa4gwhQUnsN9N1bjQ96KuIqvYSfKwCdzXjQO9m2TDDlIO12erhhFkuxM4AqDV0=
   on:
     tags: true
-    repo: devotox/ember-cli-leaflet-tiles-provider
+    repo: devotox/ember-leaflet-tiles-provider
