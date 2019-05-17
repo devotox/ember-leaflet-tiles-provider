@@ -3,8 +3,8 @@
 [![Coverage Status](https://codecov.io/gh/devotox/ember-leaflet-tiles-provider/branch/master/graph/badge.svg)](https://codecov.io/gh/devotox/ember-leaflet-tiles-provider)
 [![NPM Version](https://badge.fury.io/js/ember-leaflet-tiles-provider.svg)](http://badge.fury.io/js/ember-leaflet-tiles-provider)
 [![NPM Downloads](https://img.shields.io/npm/dm/ember-leaflet-tiles-provider.svg)](https://www.npmjs.org/package/ember-leaflet-tiles-provider)
-[![Dependency Status](https://david-dm.org/poetic/ember-leaflet-tiles-provider.svg)](https://david-dm.org/poetic/ember-leaflet-tiles-provider)
-[![DevDependency Status](https://david-dm.org/poetic/ember-leaflet-tiles-provider/dev-status.svg)](https://david-dm.org/poetic/ember-leaflet-tiles-provider#info=devDependencies)
+[![Dependency Status](https://david-dm.org/devotox/ember-leaflet-tiles-provider.svg)](https://david-dm.org/devotox/ember-leaflet-tiles-provider)
+[![DevDependency Status](https://david-dm.org/devotox/ember-leaflet-tiles-provider/dev-status.svg)](https://david-dm.org/devotox/ember-leaflet-tiles-provider#info=devDependencies)
 [![Greenkeeper](https://badges.greenkeeper.io/devotox/ember-leaflet-tiles-provider.svg)](https://greenkeeper.io/)
 
 ember-leaflet-tiles-provider
