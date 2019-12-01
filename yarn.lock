@@ -3664,10 +3664,10 @@ ember-invoke-action@^1.5.1:
   dependencies:
     ember-cli-babel "^6.6.0"
 
-ember-leaflet@4.0.0:
-  version "4.0.0"
-  resolved "https://registry.yarnpkg.com/ember-leaflet/-/ember-leaflet-4.0.0.tgz#07c43753e6b0eb3e95da4e7feee70ecff2702dcc"
-  integrity sha512-lhvSasik2xuft5EJk3bNYP05dllAnAt3QfuRLxNzsCIUNsI/PPj70PhMzRPkHkCt9NcZ6hEOz6CJpNyiUVDe8A==
+ember-leaflet@4.0.1:
+  version "4.0.1"
+  resolved "https://registry.yarnpkg.com/ember-leaflet/-/ember-leaflet-4.0.1.tgz#fd7bb8d34fd4ebf15b34caf0a12104d1f8d808c7"
+  integrity sha512-9dSTPPVMrX9RH3RaKSNkR1Jq0UoHInWIFn3rxPfgB2fFBTOH7jFoO4LA8rLIrtefW+Tzl+u+TX0omAvsHWRLWQ==
   dependencies:
     broccoli-funnel "^2.0.2"
     broccoli-merge-trees "^3.0.2"
