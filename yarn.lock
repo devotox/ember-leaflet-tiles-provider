@@ -5504,10 +5504,10 @@ kind-of@^6.0.0, kind-of@^6.0.2:
   resolved "https://registry.yarnpkg.com/kind-of/-/kind-of-6.0.2.tgz#01146b36a6218e64e58f3a8d66de5d7fc6f6d051"
   integrity sha512-s5kLOcnH0XqDO+FvuaLX8DDjZ18CGFk7VygH40QoKPUQhW4e2rvM0rwUq0t8IQDOwYSeLK01U90OjzBTme2QqA==
 
-leaflet-providers@1.9.0:
-  version "1.9.0"
-  resolved "https://registry.yarnpkg.com/leaflet-providers/-/leaflet-providers-1.9.0.tgz#94c089cafbd3bdd88a74e68b34af9f19abdf6e35"
-  integrity sha512-S7rGelBezzjH7vXLa0uA9dQ3lYgdqvmt8JZLjcm63VBcnRNz/c897mCycYp6AtDfkH2b0rz9eFzzkWHfHaoozg==
+leaflet-providers@1.9.1:
+  version "1.9.1"
+  resolved "https://registry.yarnpkg.com/leaflet-providers/-/leaflet-providers-1.9.1.tgz#43b82defe6cfbc33e891c3b7a6a6439a169f343f"
+  integrity sha512-YpJB9y4/nT5NGicU9vuqlttJaCer6paD3J3b8Wrw+IIQvK9dtcdzE9CsTkDg7Dg9FeGp5NEr3hu17xcHbYI/2w==
 
 leaflet@1.6.0:
   version "1.6.0"
